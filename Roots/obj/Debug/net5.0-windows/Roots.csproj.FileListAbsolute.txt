@@ -44,8 +44,6 @@ C:\Users\archo\source\repos\M0destru\Roots\Roots\bin\Debug\net5.0-windows\Roots.
 C:\Users\archo\source\repos\M0destru\Roots\Roots\bin\Debug\net5.0-windows\ref\Roots.dll
 C:\Users\archo\source\repos\M0destru\Roots\Roots\bin\Debug\net5.0-windows\Roots.pdb
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.csproj.AssemblyReference.cache
-C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.MainForm.resources
-C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.SettingsForm.resources
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.csproj.GenerateResource.cache
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.AssemblyInfoInputs.cache
@@ -55,3 +53,4 @@ C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\ref\Roots.dll
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.pdb
 C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.genruntimeconfig.cache
+C:\Users\archo\source\repos\M0destru\Roots\Roots\obj\Debug\net5.0-windows\Roots.Form1.resources
