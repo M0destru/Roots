@@ -42,7 +42,7 @@ namespace Roots
                 return true;
             }
             else
-                return false;
+                return true;
         }
 
         public static List<string>? GetLoc(string lang)
