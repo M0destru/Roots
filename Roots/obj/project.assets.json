@@ -8,19 +8,24 @@
     "net5.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Rustam-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\Art-PC\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rustam-PC\\source\\repos\\Roots\\Roots\\Roots.csproj",
+      "projectUniqueName": "F:\\.GIT\\Roots\\Roots\\Roots.csproj",
       "projectName": "Roots",
-      "projectPath": "C:\\Users\\Rustam-PC\\source\\repos\\Roots\\Roots\\Roots.csproj",
-      "packagesPath": "C:\\Users\\Rustam-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rustam-PC\\source\\repos\\Roots\\Roots\\obj\\",
+      "projectPath": "F:\\.GIT\\Roots\\Roots\\Roots.csproj",
+      "packagesPath": "C:\\Users\\Art-PC\\.nuget\\packages\\",
+      "outputPath": "F:\\.GIT\\Roots\\Roots\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Rustam-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Art-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

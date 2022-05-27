@@ -1,10 +1,24 @@
 {
-  "ru": [
-    "Это текст для Андрея, чтобы проверить как выглядит результат, а ещё Дима молодец и Артем тоже",
-    "Для Андрея"
+  "Русский": [
+    "Настройки",
+    "Ввод числа",
+    "Очистить",
+    "Извлечь",
+    "Результат",
+    "Точность",
+    "Язык",
+    "Языковой файл",
+    "Загрузить языковой файл"
   ],
-  "en": [
-    "This text is done for Andrew to check what the result looks like, also Dima is attaboy and Artem too",
-    "For Andrew"
+  "English": [
+    "Settings",
+    "Number input",
+    "Clear",
+    "Extract",
+    "Result",
+    "Accuracy",
+    "Language",
+    "Language file",
+    "Load language file"
   ]
 }

@@ -91,6 +91,7 @@
             this.tsMenuSettings.Name = "tsMenuSettings";
             this.tsMenuSettings.Size = new System.Drawing.Size(79, 20);
             this.tsMenuSettings.Text = "Настройки";
+            this.tsMenuSettings.Click += new System.EventHandler(this.tsMenuSettings_Click);
             // 
             // numericUpDown1
             // 

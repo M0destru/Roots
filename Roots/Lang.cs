@@ -13,9 +13,15 @@ namespace Roots
     static class Lang
     {
         static Dictionary<string, List<string>> locs { get; set; }
+        const string defLanguage = "Русский";
         const string locFileName = "loc.json";
 
-        static bool LoadLoc()
+        public static Dictionary<string, List<string>> GetDict()
+        {
+            return locs;
+        }
+
+        public static bool LoadLoc()
         {
             if (locs == null)
             {
@@ -45,10 +51,47 @@ namespace Roots
                 return true;
         }
 
-        public static List<string>? GetLoc(string lang)
+        public static bool LoadLoc(string fileName)
         {
-            bool res = LoadLoc();
-            if (res)
+            Dictionary<string, List<string>> new_locs;
+
+            try
+            {
+                string path = fileName;
+
+                using (StreamReader sr = new StreamReader(path, Encoding.UTF8))
+                {
+                    string json = sr.ReadToEnd();
+                    new_locs = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(json);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error", "Can not access file: \"" + fileName + "\"");
+                return false;
+            }
+
+            if (new_locs != null)
+            {
+                var dict = GetDict();
+                int nNew = new_locs.Keys.Count;
+                var keyNew = new_locs.Keys.ToList<string>();
+
+                for (int i = 0; i < nNew; i++)
+                {
+                    if (dict[keyNew[i]] == null)
+                    {
+                        dict.Add(keyNew[i], new_locs[keyNew[i]]);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public static List<string>? GetLoc(string lang = defLanguage)
+        {
+            if (locs != null)
                 return locs[lang];
             else
                 return null;
