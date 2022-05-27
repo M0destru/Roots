@@ -10,7 +10,7 @@ namespace RootTest
         public static Complex parse(string input)
         {
             input.Replace(" ", "");
-            Regex expr = new(@"([1-9][0-9]*(.[0-9]*)?[+-])?([1-9][0-9]*(.[0-9]*))?[*]?i\b");
+            Regex expr = new(@"([1-9][0-9]*(.[0-9]*)?[+-])?([1-9][0-9]*(.[0-9]*))?[*]?i\e");
             if (!expr.IsMatch(input)) throw new Exception("Введено не комплексное число");
 
             int plus = input.IndexOf("+"), minus = input.IndexOf("-"), mult = input.IndexOf("i");
