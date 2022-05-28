@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-namespace RootTest
+namespace Roots
 {
     class ComplexParser
     {

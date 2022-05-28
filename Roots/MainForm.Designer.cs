@@ -113,6 +113,11 @@
             this.numUpDownPrecision.Name = "numUpDownPrecision";
             this.numUpDownPrecision.Size = new System.Drawing.Size(31, 23);
             this.numUpDownPrecision.TabIndex = 4;
+            this.numUpDownPrecision.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numUpDownPrecision.ValueChanged += new System.EventHandler(this.numUpDownPrecision_ValueChanged);
             // 
             // lbAccuracy

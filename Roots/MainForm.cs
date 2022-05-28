@@ -47,15 +47,44 @@ namespace Roots
 
         private void btnGetRoot_Click(object sender, EventArgs e)
         {
-            double input = double.Parse(tbNum.Text);
-            if (rbAnalytical.Checked)
-                tbResult.Text = SquareRootCalculator.AnalyticalSQRT((BigInteger)input);
-            else
-                tbResult.Text = SquareRootCalculator.SQRT(input, precision).Real.ToString(); // Imaginary if input is negative
-            // Пример использования комплексного корня
-            // MessageBox.Show(SquareRootCalculator.SQRT(new Complex(2, -4), 3));
-            // Пример использования аналитического корня
-            // MessageBox.Show(SquareRootCalculator.AnalyticalSQRT(650165116));
+            string valType;
+            try
+            {
+                valType = Parser.calc(tbNum.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            if (rbAnalytical.Checked && (valType == "double" || valType == "complex"))
+            {
+                MessageBox.Show("Вещественные и комплексные числа нельзя представить в аналитическом виде!");
+                return;
+            }
+
+            switch (valType)
+            {
+                case "integer":
+                case "biginteger":
+                    if (rbAnalytical.Checked)
+                        tbResult.Text = SquareRootCalculator.AnalyticalSQRT(BigInteger.Parse(tbNum.Text)); 
+                    else
+                        tbResult.Text = Math.Round(SquareRootCalculator.SQRT(double.Parse(tbNum.Text), precision).Real, precision).ToString(); 
+                    break; 
+                    
+                case "double":
+                    tbResult.Text = SquareRootCalculator.SQRT(double.Parse(tbNum.Text), precision).Real.ToString();
+                    break;
+                case "complex":
+                    Complex compNum = SquareRootCalculator.SQRT(ComplexParser.parse(tbNum.Text), precision);
+                    double im = Math.Round(compNum.Imaginary, precision);
+                    double re = Math.Round(compNum.Real, precision);
+                    string sign = im >= 0 ? "+" : "-";
+                    tbResult.Text = $"{re}{sign}{im}i";
+                    break;
+            }
         }
 
         private void tbNum_TextChanged(object sender, EventArgs e)
