@@ -47,11 +47,13 @@ namespace Roots
 
         private void btnGetRoot_Click(object sender, EventArgs e)
         {
-            double input = double.Parse(tbNum.Text);
-            if (rbAnalytical.Checked)
-                tbResult.Text = SquareRootCalculator.AnalyticalSQRT((BigInteger)input);
-            else
-                tbResult.Text = SquareRootCalculator.SQRT(input, precision).Real.ToString(); // Imaginary if input is negative
+            //double input = double.Parse(tbNum.Text);
+            //if (rbAnalytical.Checked)
+            //    tbResult.Text = SquareRootCalculator.AnalyticalSQRT((BigInteger)input);
+            //else
+            //    tbResult.Text = SquareRootCalculator.SQRT(input, precision).Real.ToString(); // Imaginary if input is negative
+            try { tbResult.Text = Parser.calc(tbNum.Text, rbAnalytical.Checked, Convert.ToInt32(numUpDownPrecision.Value)); }
+            catch (Exception ex) { tbResult.Text = ex.Message; }
             // Пример использования комплексного корня
             // MessageBox.Show(SquareRootCalculator.SQRT(new Complex(2, -4), 3));
             // Пример использования аналитического корня

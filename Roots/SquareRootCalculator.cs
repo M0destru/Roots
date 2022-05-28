@@ -85,8 +85,9 @@ namespace Roots
                     insideOfRoot *= p.Key;
                 }
             }
-            string res = outsideOfRoot + "sqrt(" + insideOfRoot + ")";
-            if (isNegative) res = res + "i";
+            string res = (outsideOfRoot != 1 ? outsideOfRoot : "") + (outsideOfRoot != 1 && insideOfRoot != 1 ? " * " : "") 
+                + (insideOfRoot != 1 ? "sqrt(" + insideOfRoot + ")" : "");
+            if (isNegative) res += " * i";
             return res;
         }
     }
