@@ -16,6 +16,12 @@ namespace Roots
         const string defLanguage = "Русский";
         const string locFileName = "loc.json";
 
+        const string constError = "Ошибка";
+        const string constAccess = "Невозможно получить доступ к файлу";
+
+        static string sError;
+        static string sAccess;
+
         public static Dictionary<string, List<string>> GetDict()
         {
             return locs;
@@ -41,7 +47,11 @@ namespace Roots
                 }
                 catch
                 {
-                    MessageBox.Show("Error", "Can not access \"loc.json\"");
+                    if (sAccess != null && sError != null)
+                        MessageBox.Show(constAccess + " \"" + locFileName + "\"", constError);
+                    else
+                        MessageBox.Show(sAccess + " \"" + locFileName + "\"", sError);
+
                     return false;
                 }
 
@@ -67,7 +77,11 @@ namespace Roots
             }
             catch
             {
-                MessageBox.Show("Can not access file: \"" + fileName + "\"", "Error");
+                if (locs == null)
+                    MessageBox.Show(constAccess + " \"" + fileName + "\"", constError);
+                else
+                    MessageBox.Show(sAccess + " \"" + fileName + "\"", sError);
+
                 return false;
             }
 
@@ -95,6 +109,15 @@ namespace Roots
                 return locs[lang];
             else
                 return null;
+        }
+
+        public static void ChangeLoc(List<string> text)
+        {
+            if (text != null)
+            {
+                sError = text[9];
+                sAccess = text[10];
+            }
         }
     }
 }

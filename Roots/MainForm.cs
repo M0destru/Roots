@@ -23,7 +23,7 @@ namespace Roots
             sf.ShowDialog();
         }
 
-        public void ChangeLoc(string lang, List<string> text)
+        public void ChangeLoc(List<string> text)
         {
             if (text != null)
             {

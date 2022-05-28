@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\.GIT\\Roots\\Roots\\Roots.csproj",
+      "projectUniqueName": "F:\\.GIT\\Roots2\\Roots\\Roots.csproj",
       "projectName": "Roots",
-      "projectPath": "F:\\.GIT\\Roots\\Roots\\Roots.csproj",
+      "projectPath": "F:\\.GIT\\Roots2\\Roots\\Roots.csproj",
       "packagesPath": "C:\\Users\\Art-PC\\.nuget\\packages\\",
-      "outputPath": "F:\\.GIT\\Roots\\Roots\\obj\\",
+      "outputPath": "F:\\.GIT\\Roots2\\Roots\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

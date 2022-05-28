@@ -8,7 +8,9 @@
     "Точность",
     "Язык",
     "Языковой файл",
-    "Загрузить языковой файл"
+    "Загрузить языковой файл",
+    "Ошибка",
+    "Невозможно получить доступ к файлу"
   ],
   "English": [
     "Settings",
@@ -19,6 +21,8 @@
     "Accuracy",
     "Language",
     "Language file",
-    "Load language file"
+    "Load language file",
+    "Error",
+    "Can not access file"
   ]
 }
