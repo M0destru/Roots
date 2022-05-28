@@ -9,19 +9,19 @@ namespace Roots
     {
         public static bool checkInt(string input)
         {
-            Regex expr = new Regex(@"0|[-]?[1-9][0-9]*$");
+            Regex expr = new Regex(@"^(0|([-]?[1-9][0-9]*))$");
             return expr.IsMatch(input);
         }
 
         public static bool checkDouble(string input)
         {
-            Regex expr = new Regex(@"0|[-]?[1-9][0-9]*.[0-9]*$");
+            Regex expr = new Regex(@"^(0|([-]?[1-9][0-9]*[.][0-9]*))$");
             return expr.IsMatch(input);
         }
 
         public static bool checkComplex(string input)
         {
-            Regex expr = new Regex(@"([-]?[1-9][0-9]*.[0-9]*)?[+-]([1-9][0-9]*.[0-9]*)?[*]?i$");
+            Regex expr = new Regex(@"^(([-]?[1-9][0-9]*[.][0-9]*)?[+-]([1-9][0-9]*.[0-9]*)?[*]?i)$");
             return expr.IsMatch(input);
         }
 
@@ -41,13 +41,13 @@ namespace Roots
 
             else if (checkDouble(input))
             {
-                if (!double.TryParse(input, out double res)) throw new Exception("Число слишком большое, либо слишком маленькое");
+                double res = double.Parse(input, CultureInfo.InvariantCulture);
                 return floats(res);
             }
 
             else if (checkComplex(input))
             {
-                int plus = input.IndexOf("+"), minus = input.IndexOf("-"), mult = input.IndexOf("i");
+                int plus = input.IndexOf("+"), minus = input.LastIndexOf("-"), mult = input.IndexOf("i");
                 int sign = Math.Max(plus, minus);
                 if (input.Contains("*")) mult--;
 
