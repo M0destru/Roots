@@ -67,7 +67,7 @@ namespace Roots
             }
             catch
             {
-                MessageBox.Show("Error", "Can not access file: \"" + fileName + "\"");
+                MessageBox.Show("Can not access file: \"" + fileName + "\"", "Error");
                 return false;
             }
 
@@ -79,7 +79,7 @@ namespace Roots
 
                 for (int i = 0; i < nNew; i++)
                 {
-                    if (dict[keyNew[i]] == null)
+                    if (!dict.ContainsKey(keyNew[i]))
                     {
                         dict.Add(keyNew[i], new_locs[keyNew[i]]);
                     }

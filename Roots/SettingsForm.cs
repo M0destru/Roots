@@ -46,11 +46,14 @@ namespace Roots
 
         private void btnLoadLanguageFile_Click(object sender, EventArgs e)
         {
-            Lang.LoadLoc(btnLoadLanguageFile.Text);
+            Lang.LoadLoc(tbFile.Text);
+            UpdateList();
         }
 
-        void UpdateList()
+        public void UpdateList()
         {
+            cbLanguage.Items.Clear();
+
             var dict = Lang.GetDict();
             int count = dict.Keys.Count;
             var key = dict.Keys.ToList<string>();
@@ -58,6 +61,17 @@ namespace Roots
             for (int i = 0; i < count; i++)
             {
                 cbLanguage.Items.Add(key[i]);
+            }
+        }
+
+        private void btnGetPath_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog fd = new OpenFileDialog())
+            {
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    tbFile.Text = fd.FileName;
+                }
             }
         }
     }

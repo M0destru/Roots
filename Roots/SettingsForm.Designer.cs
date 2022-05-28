@@ -82,6 +82,7 @@
             this.btnGetPath.TabIndex = 1;
             this.btnGetPath.Text = "...";
             this.btnGetPath.UseVisualStyleBackColor = true;
+            this.btnGetPath.Click += new System.EventHandler(this.btnGetPath_Click);
             // 
             // tbFile
             // 
