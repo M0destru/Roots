@@ -12,6 +12,7 @@ namespace Roots
 {
     static class Lang
     {
+        const int elementsCount = 31;
         static string? curLang { get; set; }
         static Dictionary<string, List<string>> locs { get; set; }
         const string defLanguage = "Русский";
@@ -95,7 +96,7 @@ namespace Roots
 
                 for (int i = 0; i < nNew; i++)
                 {
-                    if (!dict.ContainsKey(keyNew[i]))
+                    if (!dict.ContainsKey(keyNew[i]) && new_locs[keyNew[i]].Count >= elementsCount)
                     {
                         dict.Add(keyNew[i], new_locs[keyNew[i]]);
                     }
