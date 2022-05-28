@@ -120,6 +120,7 @@
             this.btnOk.TabIndex = 3;
             this.btnOk.Text = "Принять";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // SettingsForm
             // 

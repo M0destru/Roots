@@ -12,9 +12,16 @@ namespace Roots
 {
     static class Lang
     {
+        static string? curLang { get; set; }
         static Dictionary<string, List<string>> locs { get; set; }
         const string defLanguage = "Русский";
         const string locFileName = "loc.json";
+
+        const string constError = "Ошибка";
+        const string constAccess = "Невозможно получить доступ к файлу";
+
+        static string sError;
+        static string sAccess;
 
         public static Dictionary<string, List<string>> GetDict()
         {
@@ -23,6 +30,7 @@ namespace Roots
 
         public static bool LoadLoc()
         {
+            curLang = null;
             if (locs == null)
             {
                 try
@@ -41,7 +49,11 @@ namespace Roots
                 }
                 catch
                 {
-                    MessageBox.Show("Error", "Can not access \"loc.json\"");
+                    if (curLang == null)
+                        MessageBox.Show(constAccess + " \"" + locFileName + "\"", constError);
+                    else
+                        MessageBox.Show(sAccess + " \"" + locFileName + "\"", sError);
+
                     return false;
                 }
 
@@ -67,7 +79,11 @@ namespace Roots
             }
             catch
             {
-                MessageBox.Show("Error", "Can not access file: \"" + fileName + "\"");
+                if (curLang == null)
+                    MessageBox.Show(constAccess + " \"" + fileName + "\"", constError);
+                else
+                    MessageBox.Show(sAccess + " \"" + fileName + "\"", sError);
+
                 return false;
             }
 
@@ -79,7 +95,7 @@ namespace Roots
 
                 for (int i = 0; i < nNew; i++)
                 {
-                    if (dict[keyNew[i]] == null)
+                    if (!dict.ContainsKey(keyNew[i]))
                     {
                         dict.Add(keyNew[i], new_locs[keyNew[i]]);
                     }
@@ -92,7 +108,27 @@ namespace Roots
         public static List<string>? GetLoc(string lang = defLanguage)
         {
             if (locs != null)
+            {
+                curLang = lang;
                 return locs[lang];
+            }
+            else
+                return null;
+        }
+
+        public static void ChangeLoc(List<string> text)
+        {
+            if (text != null)
+            {
+                sError = text[29];
+                sAccess = text[30];
+            }
+        }
+
+        public static string? CheckLoc()
+        {
+            if (locs != null)
+                return curLang;
             else
                 return null;
         }
