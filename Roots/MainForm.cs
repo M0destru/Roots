@@ -35,5 +35,11 @@ namespace Roots
                 lbAccuracy.Text = text[5];
             }
         }
+
+        private void btnClearNum_Click(object sender, EventArgs e)
+        {
+            tbNum.Clear();
+            tbResult.Clear();
+        }
     }
 }
