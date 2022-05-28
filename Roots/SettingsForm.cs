@@ -18,11 +18,15 @@ namespace Roots
             bool loaded = Lang.LoadLoc();
             if (loaded)
                 UpdateList();
+
+            string curLoc = Lang.CheckLoc();
+            if (curLoc != null)
+                ChangeLoc(curLoc);
         }
 
         private void cbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangeLoc(cbLanguage.Text);
+            
         }
 
         void ChangeLoc(string lang)
@@ -31,22 +35,30 @@ namespace Roots
 
             if (text != null)
             {
-                gbLanguage.Text = text[6];
-                gbLanguageFile.Text = text[7];
-                btnLoadLanguageFile.Text = text[8];
+                this.Text = text[0];
+                gbLanguage.Text = text[11];
+                gbLanguageFile.Text = text[12];
+                tbFile.PlaceholderText = text[13];
+                btnLoadLanguageFile.Text = text[14];
+                btnOk.Text = text[15];
 
                 Update();
             }
-            basic.ChangeLoc(lang, text);
+
+            basic.ChangeLoc(text);
+            Lang.ChangeLoc(text);
         }
 
         private void btnLoadLanguageFile_Click(object sender, EventArgs e)
         {
-            Lang.LoadLoc(btnLoadLanguageFile.Text);
+            Lang.LoadLoc(tbFile.Text);
+            UpdateList();
         }
 
-        void UpdateList()
+        public void UpdateList()
         {
+            cbLanguage.Items.Clear();
+
             var dict = Lang.GetDict();
             int count = dict.Keys.Count;
             var key = dict.Keys.ToList<string>();
@@ -59,23 +71,19 @@ namespace Roots
 
         private void btnGetPath_Click(object sender, EventArgs e)
         {
-            /* TODO: заготовка для Артема */
-            var dlg = new OpenFileDialog();
-            dlg.Filter = "JSON|*.json";
-
-            if (dlg.ShowDialog() != DialogResult.OK)
+            using (OpenFileDialog fd = new OpenFileDialog())
             {
-                return;
+                fd.Filter = "JSON|*.json";
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    tbFile.Text = fd.FileName;
+                }
             }
+        }
 
-            var path = Path.GetFullPath(dlg.FileName);
-
-            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-            {
-                
-            }
-
-            tbFile.Text = path;
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            ChangeLoc(cbLanguage.Text);
         }
     }
 }
