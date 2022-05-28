@@ -47,17 +47,8 @@ namespace Roots
 
         private void btnGetRoot_Click(object sender, EventArgs e)
         {
-            //double input = double.Parse(tbNum.Text);
-            //if (rbAnalytical.Checked)
-            //    tbResult.Text = SquareRootCalculator.AnalyticalSQRT((BigInteger)input);
-            //else
-            //    tbResult.Text = SquareRootCalculator.SQRT(input, precision).Real.ToString(); // Imaginary if input is negative
             try { tbResult.Text = Parser.calc(tbNum.Text, rbAnalytical.Checked, Convert.ToInt32(numUpDownPrecision.Value)); }
             catch (Exception ex) { tbResult.Text = ex.Message; }
-            // Пример использования комплексного корня
-            // MessageBox.Show(SquareRootCalculator.SQRT(new Complex(2, -4), 3));
-            // Пример использования аналитического корня
-            // MessageBox.Show(SquareRootCalculator.AnalyticalSQRT(650165116));
         }
 
         private void tbNum_TextChanged(object sender, EventArgs e)
@@ -79,15 +70,15 @@ namespace Roots
         {
             string msg =
                 "О программе: Программа для вычисления корней v1.0.0\n\nВозможности программы:\n" +
-                "   - Поддерживаются целые, вещественные, комплексные и длинные числа\n" +
-                "   - Корень может быть получен в арифмитическом и аналитическом видах\n" +
-                "   - Можно выбрать с какой точностью вычислить корень\n" +
+                "   - Поддерживаются целые, вещественные (разделитель - точка), комплексные (в виде a + bi или a + b * i) и длинные числа\n" +
+                "   - Корень может быть получен в арифметическом и аналитическом (только для целых чисел) видах\n" +
+                "   - Можно выбрать, с какой точностью вычислить корень\n" +
                 "   - Программа доступна на двух языках: русский и английский\n" +
                 "   - Программа поддерживает подключение новых языков\n\n" +
                 "Инструкция:\n" +
-                "   *Вы можете изменить язык интерфейса во вкладке \"Настройки\"*\n" +
+                "   *Вы можете изменить язык интерфейса во вкладке \"Настройки\"\n" +
                 "   1. Введите значение в поле \"Ввод числа\"\n" +
-                "   2. Выберить с какой точностью Вы хотите вычислить корень в поле \"Точность\"\n" +
+                "   2. Выберите, с какой точностью Вы хотите вычислить корень, в поле \"Точность\"\n" +
                 "   3. Выберите вид, в котором будет выведен корень\n" +
                 "   4. Нажмите кнопку \"Извлечь\"\n" +
                 "   5. Найденный корень будет выведен в поле \"Результат\"";

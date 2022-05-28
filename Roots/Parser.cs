@@ -35,7 +35,7 @@ namespace Roots
                     case true: return integers(res, isAnalytical, precision);
                     case false:
                         BigInteger res_ = BigInteger.Parse(input);
-                        return bigints(res_);
+                        return bigints(res_, isAnalytical, precision);
                 }
             }
 
@@ -68,16 +68,20 @@ namespace Roots
         // плейсхолдеры для вызовов расчета корней
         static string integers(int val, bool isAnalytical, int precision) =>
             isAnalytical ? SquareRootCalculator.AnalyticalSQRT(new BigInteger(val)).ToString() : 
-            ComplexToStr(SquareRootCalculator.SQRT(val, precision));
-        static string bigints(BigInteger val) => "biginteger";
+            ComplexToStr(SquareRootCalculator.SQRT(val, precision), precision);
+        static string bigints(BigInteger val, bool isAnalytical, int precision) =>
+            isAnalytical ? SquareRootCalculator.AnalyticalSQRT(val).ToString() :
+            ComplexToStr(SquareRootCalculator.SQRT(((double)val), precision), precision);
         static string floats(double val, bool isAnalytical, int precision) =>
             isAnalytical ? "Аналитический корень вещественного числа не поддерживается" :
-            ComplexToStr(SquareRootCalculator.SQRT(val, precision));
+            ComplexToStr(SquareRootCalculator.SQRT(val, precision), precision);
         static string complex(Complex val, bool isAnalytical, int precision) =>
             isAnalytical ? "Аналитический корень комплексного числа не поддерживается" :
-            ComplexToStr(SquareRootCalculator.SQRT(val, precision));
+            ComplexToStr(SquareRootCalculator.SQRT(val, precision), precision);
 
-        static string ComplexToStr(Complex val) => $"{(val.Real != 0 || val.Imaginary == 0 ? $"{val.Real}" : "")}" +
-            $"{(val.Imaginary > 0 && val.Real != 0 ? "+" : "")}" + $"{(val.Imaginary != 0 ? $"{val.Imaginary}i" : "")}";
+        static string ComplexToStr(Complex val, int precision) => 
+            $"{(val.Real != 0 || val.Imaginary == 0 ? $"{Math.Round(val.Real, precision)}" : "")}" +
+            $"{(val.Imaginary > 0 && val.Real != 0 ? "+" : "")}" + 
+            $"{(val.Imaginary != 0 ? $"{Math.Round(val.Imaginary, precision)}i" : "")}";
     }
 }
