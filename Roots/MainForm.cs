@@ -46,11 +46,11 @@ namespace Roots
         private void btnGetRoot_Click(object sender, EventArgs e)
         {
             double input = double.Parse(tbNum.Text);
-            tbResult.Text = SquareRootCalculator.SQRT(input, 5);
+            tbResult.Text = SquareRootCalculator.SQRT(input, 5).Real.ToString(); // Imaginary if input is negative
             // Пример использования комплексного корня
             // MessageBox.Show(SquareRootCalculator.SQRT(new Complex(2, -4), 3));
             // Пример использования аналитического корня
-            // MessageBox.Show(SquareRootCalculator.AnalyticalSQRT(650));
+            // MessageBox.Show(SquareRootCalculator.AnalyticalSQRT(650165116));
         }
 
         private void tbNum_TextChanged(object sender, EventArgs e)

@@ -28,17 +28,17 @@ namespace Roots
             } while (Math.Abs(y_prev - y_new) > eps);
             return y_new;
         }
-        public static string SQRT(double input, int precision=3)
+        public static Complex SQRT(double input, int precision=3)
         {
             bool isNegative = (input < 0); 
             double x = Math.Abs(input); // root(-a) = root(a)*i, where a>0
             double y = doubleSQRT(x, precision);
 
-            if (isNegative) return y.ToString() + "i";
-            else return y.ToString();
+            if (isNegative) return new Complex(0, y);
+            else return new Complex(y, 0);
         }
 
-        public static string SQRT(Complex input, int precision)
+        public static Complex SQRT(Complex input, int precision)
         {
             // http://fxdx.ru/page/kvadratnyj-koren-iz-kompleksnogo-chisla
 
@@ -49,12 +49,7 @@ namespace Roots
             double imZ = Math.Sign(b) * (doubleSQRT(0.5 * (doubleSQRT(a * a + b * b) - a)));
 
 
-            string res = reZ.ToString();
-            if (imZ > 0)
-                res = res + "+" + imZ.ToString() + "i";
-            else
-                res = res + imZ.ToString() + "i";
-            return res;
+            return new Complex(reZ, imZ);
         }
 
         public static string AnalyticalSQRT(BigInteger input)
