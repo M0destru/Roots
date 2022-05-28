@@ -45,8 +45,8 @@ namespace Roots
             double a = input.Real;
             double b = input.Imaginary;
 
-            double reZ = (doubleSQRT(0.5 * (doubleSQRT(a * a + b * b) + a)));
-            double imZ = Math.Sign(b) * (doubleSQRT(0.5 * (doubleSQRT(a * a + b * b) - a)));
+            double reZ = (doubleSQRT(0.5 * (doubleSQRT(a * a + b * b, precision) + a), precision));
+            double imZ = Math.Sign(b) * (doubleSQRT(0.5 * (doubleSQRT(a * a + b * b, precision) - a), precision));
 
 
             return new Complex(reZ, imZ);
