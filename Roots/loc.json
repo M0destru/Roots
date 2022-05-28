@@ -1,0 +1,24 @@
+{
+  "Русский": [
+    "Настройки",
+    "Ввод числа",
+    "Очистить",
+    "Извлечь",
+    "Результат",
+    "Точность",
+    "Язык",
+    "Языковой файл",
+    "Загрузить языковой файл"
+  ],
+  "English": [
+    "Settings",
+    "Number input",
+    "Clear",
+    "Extract",
+    "Result",
+    "Accuracy",
+    "Language",
+    "Language file",
+    "Load language file"
+  ]
+}

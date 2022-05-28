@@ -15,7 +15,13 @@ namespace Roots
         public Form1()
         {
             InitializeComponent();
+            //example:
+            var text = Lang.GetLoc("en");
+            if (text != null)
+            {
+                label1.Text = text[0];
+                button1.Text = text[1];
+            }
         }
-
     }
 }
