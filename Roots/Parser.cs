@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Globalization;
 using System.Numerics;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Roots
 {
@@ -9,19 +9,19 @@ namespace Roots
     {
         public static bool checkInt(string input)
         {
-            Regex expr = new Regex(@"0|[-]?[1-9][0-9]*$");
+            Regex expr = new Regex(@"^(0|([-]?[1-9][0-9]*))$");
             return expr.IsMatch(input);
         }
 
         public static bool checkDouble(string input)
         {
-            Regex expr = new Regex(@"0|[-]?[1-9][0-9]*.[0-9]*$");
+            Regex expr = new Regex(@"^(0|([-]?[1-9][0-9]*[.][0-9]*))$");
             return expr.IsMatch(input);
         }
 
         public static bool checkComplex(string input)
         {
-            Regex expr = new Regex(@"([-]?[1-9][0-9]*.[0-9]*)?[+-]([1-9][0-9]*.[0-9]*)?[*]?i$");
+            Regex expr = new Regex(@"^([-]?([1-9][0-9]*([.][0-9]*)?[+-])?([1-9][0-9]*([.][0-9]*)?[*]?)?[i])$");
             return expr.IsMatch(input);
         }
 
@@ -41,17 +41,18 @@ namespace Roots
 
             else if (checkDouble(input))
             {
-                if (!double.TryParse(input, out double res)) throw new Exception("Число слишком большое, либо слишком маленькое");
+                double res = double.Parse(input, CultureInfo.InvariantCulture);
                 return floats(res);
             }
 
             else if (checkComplex(input))
             {
-                int plus = input.IndexOf("+"), minus = input.IndexOf("-"), mult = input.IndexOf("i");
+                int plus = input.IndexOf("+"), minus = input.LastIndexOf("-"), mult = input.IndexOf("i");
                 int sign = Math.Max(plus, minus);
                 if (input.Contains("*")) mult--;
 
                 double real = plus == -1 && minus == -1 ? 0 : double.Parse(input.Substring(0, sign), CultureInfo.InvariantCulture);
+                if (sign == minus) sign--;
                 double imaginary = mult - sign - 1 == 0 ? 1 :
                     double.Parse(input.Substring(sign + 1, mult - sign - 1), CultureInfo.InvariantCulture);
 
@@ -69,4 +70,3 @@ namespace Roots
         static string complex(Complex val) => "complex";
     }
 }
-
