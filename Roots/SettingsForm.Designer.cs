@@ -45,7 +45,7 @@
             this.cbLanguage.Location = new System.Drawing.Point(5, 20);
             this.cbLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(408, 23);
+            this.cbLanguage.Size = new System.Drawing.Size(408, 25);
             this.cbLanguage.TabIndex = 0;
             this.cbLanguage.SelectedIndexChanged += new System.EventHandler(this.cbLanguage_SelectedIndexChanged);
             // 
@@ -54,6 +54,7 @@
             this.gbLanguageFile.Controls.Add(this.btnLoadLanguageFile);
             this.gbLanguageFile.Controls.Add(this.btnGetPath);
             this.gbLanguageFile.Controls.Add(this.tbFile);
+            this.gbLanguageFile.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbLanguageFile.Location = new System.Drawing.Point(0, 66);
             this.gbLanguageFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbLanguageFile.Name = "gbLanguageFile";
@@ -65,10 +66,11 @@
             // 
             // btnLoadLanguageFile
             // 
-            this.btnLoadLanguageFile.Location = new System.Drawing.Point(230, 53);
+            this.btnLoadLanguageFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoadLanguageFile.Location = new System.Drawing.Point(232, 55);
             this.btnLoadLanguageFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoadLanguageFile.Name = "btnLoadLanguageFile";
-            this.btnLoadLanguageFile.Size = new System.Drawing.Size(182, 22);
+            this.btnLoadLanguageFile.Size = new System.Drawing.Size(180, 29);
             this.btnLoadLanguageFile.TabIndex = 2;
             this.btnLoadLanguageFile.Text = "Загрузить языковой файл";
             this.btnLoadLanguageFile.UseVisualStyleBackColor = true;
@@ -79,7 +81,7 @@
             this.btnGetPath.Location = new System.Drawing.Point(382, 26);
             this.btnGetPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetPath.Name = "btnGetPath";
-            this.btnGetPath.Size = new System.Drawing.Size(32, 23);
+            this.btnGetPath.Size = new System.Drawing.Size(32, 25);
             this.btnGetPath.TabIndex = 1;
             this.btnGetPath.Text = "...";
             this.btnGetPath.UseVisualStyleBackColor = true;
@@ -90,12 +92,14 @@
             this.tbFile.Location = new System.Drawing.Point(5, 26);
             this.tbFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbFile.Name = "tbFile";
-            this.tbFile.Size = new System.Drawing.Size(372, 23);
+            this.tbFile.PlaceholderText = "Путь до файла";
+            this.tbFile.Size = new System.Drawing.Size(372, 25);
             this.tbFile.TabIndex = 0;
             // 
             // gbLanguage
             // 
             this.gbLanguage.Controls.Add(this.cbLanguage);
+            this.gbLanguage.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbLanguage.Location = new System.Drawing.Point(0, 9);
             this.gbLanguage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbLanguage.Name = "gbLanguage";
@@ -108,18 +112,20 @@
             // btnOk
             // 
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnOk.Location = new System.Drawing.Point(0, 163);
+            this.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOk.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOk.Location = new System.Drawing.Point(0, 176);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(417, 23);
+            this.btnOk.Size = new System.Drawing.Size(417, 27);
             this.btnOk.TabIndex = 3;
-            this.btnOk.Text = "ОК";
+            this.btnOk.Text = "Принять";
             this.btnOk.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 186);
+            this.ClientSize = new System.Drawing.Size(417, 203);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gbLanguage);
             this.Controls.Add(this.gbLanguageFile);

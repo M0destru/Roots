@@ -39,6 +39,7 @@
             this.lbAccuracy = new System.Windows.Forms.Label();
             this.tbResult = new System.Windows.Forms.TextBox();
             this.gbInput = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.rbArithmetic = new System.Windows.Forms.RadioButton();
             this.rbAnalytical = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -51,10 +52,11 @@
             // 
             // btnGetRoot
             // 
-            this.btnGetRoot.Location = new System.Drawing.Point(6, 55);
+            this.btnGetRoot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGetRoot.Location = new System.Drawing.Point(6, 56);
             this.btnGetRoot.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetRoot.Name = "btnGetRoot";
-            this.btnGetRoot.Size = new System.Drawing.Size(82, 22);
+            this.btnGetRoot.Size = new System.Drawing.Size(97, 29);
             this.btnGetRoot.TabIndex = 0;
             this.btnGetRoot.Text = "Извлечь корень";
             this.btnGetRoot.UseVisualStyleBackColor = true;
@@ -62,10 +64,11 @@
             // 
             // btnClearNum
             // 
-            this.btnClearNum.Location = new System.Drawing.Point(94, 55);
+            this.btnClearNum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearNum.Location = new System.Drawing.Point(109, 56);
             this.btnClearNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClearNum.Name = "btnClearNum";
-            this.btnClearNum.Size = new System.Drawing.Size(82, 22);
+            this.btnClearNum.Size = new System.Drawing.Size(97, 29);
             this.btnClearNum.TabIndex = 1;
             this.btnClearNum.Text = "Очистить";
             this.btnClearNum.UseVisualStyleBackColor = true;
@@ -76,7 +79,8 @@
             this.tbNum.Location = new System.Drawing.Point(6, 28);
             this.tbNum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbNum.Name = "tbNum";
-            this.tbNum.Size = new System.Drawing.Size(170, 23);
+            this.tbNum.PlaceholderText = "Введите число";
+            this.tbNum.Size = new System.Drawing.Size(200, 25);
             this.tbNum.TabIndex = 2;
             this.tbNum.TextChanged += new System.EventHandler(this.tbNum_TextChanged);
             // 
@@ -89,7 +93,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(476, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(530, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,55 +113,73 @@
             // 
             // numUpDownPrecision
             // 
-            this.numUpDownPrecision.Location = new System.Drawing.Point(214, 29);
+            this.numUpDownPrecision.Location = new System.Drawing.Point(274, 28);
             this.numUpDownPrecision.Name = "numUpDownPrecision";
-            this.numUpDownPrecision.Size = new System.Drawing.Size(31, 23);
+            this.numUpDownPrecision.Size = new System.Drawing.Size(31, 25);
             this.numUpDownPrecision.TabIndex = 4;
+            this.numUpDownPrecision.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numUpDownPrecision.ValueChanged += new System.EventHandler(this.numUpDownPrecision_ValueChanged);
             // 
             // lbAccuracy
             // 
             this.lbAccuracy.AutoSize = true;
-            this.lbAccuracy.Location = new System.Drawing.Point(196, 11);
+            this.lbAccuracy.Location = new System.Drawing.Point(211, 0);
             this.lbAccuracy.Name = "lbAccuracy";
-            this.lbAccuracy.Size = new System.Drawing.Size(58, 15);
+            this.lbAccuracy.Size = new System.Drawing.Size(161, 17);
             this.lbAccuracy.TabIndex = 5;
-            this.lbAccuracy.Text = "Точность";
+            this.lbAccuracy.Text = "Разрядов после запятой";
             // 
             // tbResult
             // 
             this.tbResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbResult.Enabled = false;
-            this.tbResult.Location = new System.Drawing.Point(3, 19);
+            this.tbResult.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.tbResult.Location = new System.Drawing.Point(3, 21);
             this.tbResult.Multiline = true;
             this.tbResult.Name = "tbResult";
-            this.tbResult.Size = new System.Drawing.Size(470, 78);
+            this.tbResult.Size = new System.Drawing.Size(524, 41);
             this.tbResult.TabIndex = 6;
             // 
             // gbInput
             // 
+            this.gbInput.AutoSize = true;
+            this.gbInput.Controls.Add(this.label1);
             this.gbInput.Controls.Add(this.rbArithmetic);
             this.gbInput.Controls.Add(this.rbAnalytical);
-            this.gbInput.Controls.Add(this.tbNum);
             this.gbInput.Controls.Add(this.btnGetRoot);
+            this.gbInput.Controls.Add(this.tbNum);
             this.gbInput.Controls.Add(this.btnClearNum);
             this.gbInput.Controls.Add(this.lbAccuracy);
             this.gbInput.Controls.Add(this.numUpDownPrecision);
             this.gbInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbInput.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbInput.Location = new System.Drawing.Point(0, 24);
             this.gbInput.Name = "gbInput";
-            this.gbInput.Size = new System.Drawing.Size(476, 115);
+            this.gbInput.Size = new System.Drawing.Size(530, 108);
             this.gbInput.TabIndex = 7;
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Ввод числа";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(408, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Вывод корня";
             // 
             // rbArithmetic
             // 
             this.rbArithmetic.AutoSize = true;
             this.rbArithmetic.Checked = true;
-            this.rbArithmetic.Location = new System.Drawing.Point(342, 22);
+            this.rbArithmetic.Location = new System.Drawing.Point(389, 28);
             this.rbArithmetic.Name = "rbArithmetic";
-            this.rbArithmetic.Size = new System.Drawing.Size(122, 19);
+            this.rbArithmetic.Size = new System.Drawing.Size(135, 21);
             this.rbArithmetic.TabIndex = 7;
             this.rbArithmetic.TabStop = true;
             this.rbArithmetic.Text = "Арифметический";
@@ -166,9 +188,9 @@
             // rbAnalytical
             // 
             this.rbAnalytical.AutoSize = true;
-            this.rbAnalytical.Location = new System.Drawing.Point(342, 47);
+            this.rbAnalytical.Location = new System.Drawing.Point(389, 55);
             this.rbAnalytical.Name = "rbAnalytical";
-            this.rbAnalytical.Size = new System.Drawing.Size(111, 19);
+            this.rbAnalytical.Size = new System.Drawing.Size(123, 21);
             this.rbAnalytical.TabIndex = 6;
             this.rbAnalytical.Text = "Аналитический";
             this.rbAnalytical.UseVisualStyleBackColor = true;
@@ -178,9 +200,10 @@
             // 
             this.gbResult.Controls.Add(this.tbResult);
             this.gbResult.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbResult.Location = new System.Drawing.Point(0, 139);
+            this.gbResult.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.gbResult.Location = new System.Drawing.Point(0, 132);
             this.gbResult.Name = "gbResult";
-            this.gbResult.Size = new System.Drawing.Size(476, 100);
+            this.gbResult.Size = new System.Drawing.Size(530, 65);
             this.gbResult.TabIndex = 9;
             this.gbResult.TabStop = false;
             this.gbResult.Text = "Результат";
@@ -189,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 238);
+            this.ClientSize = new System.Drawing.Size(530, 209);
             this.Controls.Add(this.gbResult);
             this.Controls.Add(this.gbInput);
             this.Controls.Add(this.menuStrip1);
@@ -199,6 +222,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyRoots";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -228,5 +252,6 @@
         private System.Windows.Forms.RadioButton rbArithmetic;
         private System.Windows.Forms.RadioButton rbAnalytical;
         private System.Windows.Forms.ToolStripMenuItem tsMenuReference;
+        private System.Windows.Forms.Label label1;
     }
 }
