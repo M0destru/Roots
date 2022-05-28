@@ -57,6 +57,7 @@
             this.btnGetRoot.TabIndex = 0;
             this.btnGetRoot.Text = "Извлечь корень";
             this.btnGetRoot.UseVisualStyleBackColor = true;
+            this.btnGetRoot.Click += new System.EventHandler(this.btnGetRoot_Click);
             // 
             // btnClearNum
             // 
@@ -76,6 +77,7 @@
             this.tbNum.Name = "tbNum";
             this.tbNum.Size = new System.Drawing.Size(170, 23);
             this.tbNum.TabIndex = 2;
+            this.tbNum.TextChanged += new System.EventHandler(this.tbNum_TextChanged);
             // 
             // menuStrip1
             // 

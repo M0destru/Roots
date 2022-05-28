@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Numerics;
 
 namespace Roots
 {
@@ -40,6 +41,21 @@ namespace Roots
         {
             tbNum.Clear();
             tbResult.Clear();
+        }
+
+        private void btnGetRoot_Click(object sender, EventArgs e)
+        {
+            double input = double.Parse(tbNum.Text);
+            tbResult.Text = SquareRootCalculator.SQRT(input, 5);
+            // Пример использования комплексного корня
+            // MessageBox.Show(SquareRootCalculator.SQRT(new Complex(2, -4), 3));
+            // Пример использования аналитического корня
+            // MessageBox.Show(SquareRootCalculator.AnalyticalSQRT(650));
+        }
+
+        private void tbNum_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
