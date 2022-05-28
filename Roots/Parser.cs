@@ -21,7 +21,7 @@ namespace Roots
 
         public static bool checkComplex(string input)
         {
-            Regex expr = new Regex(@"^(([-]?[1-9][0-9]*[.][0-9]*)?[+-]([1-9][0-9]*.[0-9]*)?[*]?i)$");
+            Regex expr = new Regex(@"^([-]?([1-9][0-9]*([.][0-9]*)?[+-])?([1-9][0-9]*([.][0-9]*)?[*]?)?[i])$");
             return expr.IsMatch(input);
         }
 
@@ -52,6 +52,7 @@ namespace Roots
                 if (input.Contains("*")) mult--;
 
                 double real = plus == -1 && minus == -1 ? 0 : double.Parse(input.Substring(0, sign), CultureInfo.InvariantCulture);
+                if (sign == minus) sign--;
                 double imaginary = mult - sign - 1 == 0 ? 1 :
                     double.Parse(input.Substring(sign + 1, mult - sign - 1), CultureInfo.InvariantCulture);
 
