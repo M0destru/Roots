@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Roots
@@ -59,6 +55,27 @@ namespace Roots
             {
                 cbLanguage.Items.Add(key[i]);
             }
+        }
+
+        private void btnGetPath_Click(object sender, EventArgs e)
+        {
+            /* TODO: заготовка для Артема */
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "JSON|*.json";
+
+            if (dlg.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var path = Path.GetFullPath(dlg.FileName);
+
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                
+            }
+
+            tbFile.Text = path;
         }
     }
 }

@@ -34,6 +34,7 @@
             this.btnGetPath = new System.Windows.Forms.Button();
             this.tbFile = new System.Windows.Forms.TextBox();
             this.gbLanguage = new System.Windows.Forms.GroupBox();
+            this.btnOk = new System.Windows.Forms.Button();
             this.gbLanguageFile.SuspendLayout();
             this.gbLanguage.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             // 
             // btnLoadLanguageFile
             // 
-            this.btnLoadLanguageFile.Location = new System.Drawing.Point(231, 58);
+            this.btnLoadLanguageFile.Location = new System.Drawing.Point(230, 53);
             this.btnLoadLanguageFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoadLanguageFile.Name = "btnLoadLanguageFile";
             this.btnLoadLanguageFile.Size = new System.Drawing.Size(182, 22);
@@ -78,10 +79,11 @@
             this.btnGetPath.Location = new System.Drawing.Point(382, 26);
             this.btnGetPath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGetPath.Name = "btnGetPath";
-            this.btnGetPath.Size = new System.Drawing.Size(32, 20);
+            this.btnGetPath.Size = new System.Drawing.Size(32, 23);
             this.btnGetPath.TabIndex = 1;
             this.btnGetPath.Text = "...";
             this.btnGetPath.UseVisualStyleBackColor = true;
+            this.btnGetPath.Click += new System.EventHandler(this.btnGetPath_Click);
             // 
             // tbFile
             // 
@@ -103,11 +105,22 @@
             this.gbLanguage.TabStop = false;
             this.gbLanguage.Text = "Язык";
             // 
+            // btnOk
+            // 
+            this.btnOk.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnOk.Location = new System.Drawing.Point(0, 163);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(417, 23);
+            this.btnOk.TabIndex = 3;
+            this.btnOk.Text = "ОК";
+            this.btnOk.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(417, 155);
+            this.ClientSize = new System.Drawing.Size(417, 186);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.gbLanguage);
             this.Controls.Add(this.gbLanguageFile);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -132,5 +145,6 @@
         private System.Windows.Forms.Button btnGetPath;
         private System.Windows.Forms.TextBox tbFile;
         private System.Windows.Forms.GroupBox gbLanguage;
+        private System.Windows.Forms.Button btnOk;
     }
 }

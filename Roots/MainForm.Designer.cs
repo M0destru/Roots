@@ -34,16 +34,17 @@
             this.tbNum = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsMenuSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.tsMenuReference = new System.Windows.Forms.ToolStripMenuItem();
+            this.numUpDownPrecision = new System.Windows.Forms.NumericUpDown();
             this.lbAccuracy = new System.Windows.Forms.Label();
             this.tbResult = new System.Windows.Forms.TextBox();
             this.gbInput = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rbArithmetic = new System.Windows.Forms.RadioButton();
+            this.rbAnalytical = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbResult = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPrecision)).BeginInit();
             this.gbInput.SuspendLayout();
             this.gbResult.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +84,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsMenuSettings});
+            this.tsMenuSettings,
+            this.tsMenuReference});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -98,12 +100,20 @@
             this.tsMenuSettings.Text = "Настройки";
             this.tsMenuSettings.Click += new System.EventHandler(this.tsMenuSettings_Click);
             // 
-            // numericUpDown1
+            // tsMenuReference
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(214, 29);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(31, 23);
-            this.numericUpDown1.TabIndex = 4;
+            this.tsMenuReference.Name = "tsMenuReference";
+            this.tsMenuReference.Size = new System.Drawing.Size(65, 20);
+            this.tsMenuReference.Text = "Справка";
+            this.tsMenuReference.Click += new System.EventHandler(this.tsMenuReference_Click);
+            // 
+            // numUpDownPrecision
+            // 
+            this.numUpDownPrecision.Location = new System.Drawing.Point(214, 29);
+            this.numUpDownPrecision.Name = "numUpDownPrecision";
+            this.numUpDownPrecision.Size = new System.Drawing.Size(31, 23);
+            this.numUpDownPrecision.TabIndex = 4;
+            this.numUpDownPrecision.ValueChanged += new System.EventHandler(this.numUpDownPrecision_ValueChanged);
             // 
             // lbAccuracy
             // 
@@ -126,13 +136,13 @@
             // 
             // gbInput
             // 
-            this.gbInput.Controls.Add(this.radioButton2);
-            this.gbInput.Controls.Add(this.radioButton1);
+            this.gbInput.Controls.Add(this.rbArithmetic);
+            this.gbInput.Controls.Add(this.rbAnalytical);
             this.gbInput.Controls.Add(this.tbNum);
             this.gbInput.Controls.Add(this.btnGetRoot);
             this.gbInput.Controls.Add(this.btnClearNum);
             this.gbInput.Controls.Add(this.lbAccuracy);
-            this.gbInput.Controls.Add(this.numericUpDown1);
+            this.gbInput.Controls.Add(this.numUpDownPrecision);
             this.gbInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbInput.Location = new System.Drawing.Point(0, 24);
             this.gbInput.Name = "gbInput";
@@ -141,27 +151,28 @@
             this.gbInput.TabStop = false;
             this.gbInput.Text = "Ввод числа";
             // 
-            // radioButton2
+            // rbArithmetic
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(342, 22);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(122, 19);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Арифметический";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbArithmetic.AutoSize = true;
+            this.rbArithmetic.Checked = true;
+            this.rbArithmetic.Location = new System.Drawing.Point(342, 22);
+            this.rbArithmetic.Name = "rbArithmetic";
+            this.rbArithmetic.Size = new System.Drawing.Size(122, 19);
+            this.rbArithmetic.TabIndex = 7;
+            this.rbArithmetic.TabStop = true;
+            this.rbArithmetic.Text = "Арифметический";
+            this.rbArithmetic.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbAnalytical
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(342, 47);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(111, 19);
-            this.radioButton1.TabIndex = 6;
-            this.radioButton1.Text = "Аналитический";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbAnalytical.AutoSize = true;
+            this.rbAnalytical.Location = new System.Drawing.Point(342, 47);
+            this.rbAnalytical.Name = "rbAnalytical";
+            this.rbAnalytical.Size = new System.Drawing.Size(111, 19);
+            this.rbAnalytical.TabIndex = 6;
+            this.rbAnalytical.Text = "Аналитический";
+            this.rbAnalytical.UseVisualStyleBackColor = true;
+            this.rbAnalytical.CheckedChanged += new System.EventHandler(this.rbAnalytical_CheckedChanged);
             // 
             // gbResult
             // 
@@ -191,7 +202,7 @@
             this.Text = "MyRoots";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numUpDownPrecision)).EndInit();
             this.gbInput.ResumeLayout(false);
             this.gbInput.PerformLayout();
             this.gbResult.ResumeLayout(false);
@@ -208,13 +219,14 @@
         private System.Windows.Forms.TextBox tbNum;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsMenuSettings;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numUpDownPrecision;
         private System.Windows.Forms.Label lbAccuracy;
         private System.Windows.Forms.TextBox tbResult;
         private System.Windows.Forms.GroupBox gbInput;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox gbResult;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbArithmetic;
+        private System.Windows.Forms.RadioButton rbAnalytical;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuReference;
     }
 }
