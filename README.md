@@ -97,3 +97,101 @@
 Для добавление нового языка нужно перевести каждый элемент массива с сохранением порядка и добавить массив в языковой файл
 
 
+# MyRoots
+
+Application for square root extraction
+
+## Content
+
+[User Manual](#user manual)
+[Adding a new language](#adding-a-new-language)
+
+## User Manual
+
+### Root calculation
+
+#### Enter a number in the "Enter a number" field
+
+Type of number:
+* Whole
+* Real (dot separator)
+* Complex in the "a +" format bi" or "a + b * i"
+
+#### Set the precision in the "Decimal places" field
+
+As a result, the selected number of decimal places will be shown.
+
+The maximum allowable accuracy is 15.
+
+#### Select the output format in the "Root Output" group
+
+Arithmetic - a number with an integer part and a specified number of digits after the decimal point will be output
+
+Analytical - a symbolic representation with an integer part and a root remainder will be given
+
+#### Click on the "Extract" button
+
+The result will appear in the "Result" field
+
+### Language change
+
+* Go to the Settings menu
+* Specify the path to the language file
+* Click on the "Download"
+button * Select the language
+* Click on the "OK" button
+
+## Adding a new language
+
+The language file has permission .json and structure
+```
+{
+"Name of language 1": [...],
+"Name of language 2`: [...]
+}
+```
+
+The language is set by an array of the form
+
+```
+
+[
+	"Settings",
+	"Help",
+	"Entering a number",
+	"Decimal Digit",
+	"Root Output",
+	"Enter a Number",
+	"Extract",
+	"Clear",
+	"Arithmetic",
+	"Analytical",
+	"Result",
+	"Language",
+	"Language file",
+	"File path",
+	"Upload language file",
+	"Accept",
+	"About the program: A program for calculating the roots v1.0.0\n\nThe possibilities of the program:\n",
+	" - Integers, real (dot separator), complex (in the form of a + are supported bi or a + b * i) and long numbers \n",
+	" - The root can be obtained in arithmetic and analytical (only for integers) forms \n",
+	" - You can choose with what accuracy to calculate the root \n",
+	" - The program is available in two languages: Russian and English\n",
+	" - The program supports the connection of new languages\n\n",
+	"Instructions:\n",
+	" *You can change the interface language in the \"Settings\"\n" tab,
+	" 1. Enter a value in the \"Enter a number\"\n" field,
+	" 2. Select the accuracy with which you want to calculate the root, in the field \"Accuracy\"\n",
+	" 3. Select the type in which the root\n" will be output,
+	" 4. Click \"Extract\"\n",
+	" 5. The found root will be output in the field \"Result\"",
+	"Error",
+	"Unable to access the file",
+	"Not a number has been entered, or this number format is not supported",
+	"The analytical root of a real number is not supported",
+	"The analytical root of a complex number is not supported"
+]
+```
+
+To add a new language, you need to translate each element of the array while maintaining the order and add the array to the language file
+
