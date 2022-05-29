@@ -30,7 +30,10 @@
     "   4. Нажмите кнопку \"Извлечь\"\n",
     "   5. Найденный корень будет выведен в поле \"Результат\"",
     "Ошибка",
-    "Не удается получить доступ к файлу"
+    "Не удается получить доступ к файлу",
+    "Введено не число, либо такой формат числа не поддерживается",
+    "Аналитический корень вещественного числа не поддерживается",
+    "Аналитический корень комплексного числа не поддерживается"
   ],
   "English": [
     "Settings",
@@ -63,6 +66,9 @@
     " 4. Click \"Extract\"\n",
     " 5. The found root will be displayed in the \"Result\" field",
     "Error",
-    "Can not access file"
+    "Can not access file",
+    "Entered not a number or such format is not supported",
+    "The analytical root of a real number is not supported",
+    "The analytical root of a complex number is not supported"
   ]
 }

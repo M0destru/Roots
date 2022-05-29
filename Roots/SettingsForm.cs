@@ -47,6 +47,7 @@ namespace Roots
 
             basic.ChangeLoc(text);
             Lang.ChangeLoc(text);
+            Parser.ChangeLoc(text);
         }
 
         private void btnLoadLanguageFile_Click(object sender, EventArgs e)

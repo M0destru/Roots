@@ -2,6 +2,7 @@
 using System.Numerics;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Collections.Generic;
 
 namespace Roots
 {
@@ -62,7 +63,7 @@ namespace Roots
                 return complex(res, isAnalytical, precision);
             }
 
-            throw new Exception("Введено не число, либо такой формат числа не поддерживается");
+            throw new Exception(sWrongFormat);
         }
 
         // плейсхолдеры для вызовов расчета корней
@@ -73,15 +74,29 @@ namespace Roots
             isAnalytical ? SquareRootCalculator.AnalyticalSQRT(val).ToString() :
             ComplexToStr(SquareRootCalculator.SQRT(((double)val), precision), precision);
         static string floats(double val, bool isAnalytical, int precision) =>
-            isAnalytical ? "Аналитический корень вещественного числа не поддерживается" :
+            isAnalytical ? sSimpleBad :
             ComplexToStr(SquareRootCalculator.SQRT(val, precision), precision);
         static string complex(Complex val, bool isAnalytical, int precision) =>
-            isAnalytical ? "Аналитический корень комплексного числа не поддерживается" :
+            isAnalytical ? sComplexBad :
             ComplexToStr(SquareRootCalculator.SQRT(val, precision), precision);
 
         static string ComplexToStr(Complex val, int precision) => 
             $"{(val.Real != 0 || val.Imaginary == 0 ? $"{Math.Round(val.Real, precision)}" : "")}" +
             $"{(val.Imaginary > 0 && val.Real != 0 ? "+" : "")}" + 
             $"{(val.Imaginary != 0 ? $"{Math.Round(val.Imaginary, precision)}i" : "")}";
+
+        static string sWrongFormat = "Введено не число, либо такой формат числа не поддерживается";
+        static string sSimpleBad = "Аналитический корень вещественного числа не поддерживается";
+        static string sComplexBad = "Аналитический корень комплексного числа не поддерживается";
+
+        public static void ChangeLoc(List<string> text)
+        {
+            if (text != null)
+            {
+                sWrongFormat = text[31];
+                sSimpleBad = text[32];
+                sComplexBad = text[33];
+            }
+        }
     }
 }
