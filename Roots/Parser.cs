@@ -16,7 +16,7 @@ namespace Roots
 
         public static bool checkDouble(string input)
         {
-            Regex expr = new Regex(@"^(0|([-]?[1-9][0-9]*[.][0-9]*))$");
+            Regex expr = new Regex(@"^[0-9]*[.][0-9]+$");
             return expr.IsMatch(input);
         }
 
