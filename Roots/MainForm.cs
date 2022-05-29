@@ -20,6 +20,7 @@ namespace Roots
         public MainForm()
         {
             InitializeComponent();
+            numUpDownPrecision.Maximum = 15;
 
             msg =
                 "О программе: Программа для вычисления корней v1.0.0\n\nВозможности программы:\n" +
