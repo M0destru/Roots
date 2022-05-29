@@ -39,10 +39,7 @@ namespace Roots
             {
                 try
                 {
-                    var path = Directory.GetParent(
-                                Directory.GetParent(
-                                 Directory.GetParent(
-                                  Directory.GetCurrentDirectory()).FullName).FullName).FullName + "\\";
+                    var path = Directory.GetCurrentDirectory() + "\\";
                     path += locFileName;
 
                     using (StreamReader sr = new StreamReader(path, Encoding.UTF8))
