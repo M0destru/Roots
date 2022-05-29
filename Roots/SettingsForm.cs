@@ -84,7 +84,20 @@ namespace Roots
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            ChangeLoc(cbLanguage.Text);
+            var dict = Lang.GetDict();
+            int n = dict.Keys.Count;
+            var key = dict.Keys.ToList<string>();
+
+            bool accepted = false;
+            string text = cbLanguage.Text;
+            for (int i = 0; i < n; i++)
+            {
+                if (text == key[i])
+                    accepted = true;
+            }
+
+            if (accepted)
+                ChangeLoc(cbLanguage.Text);
         }
     }
 }
