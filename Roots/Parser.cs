@@ -16,13 +16,13 @@ namespace Roots
 
         public static bool checkDouble(string input)
         {
-            Regex expr = new Regex(@"^[0-9]*[.][0-9]+$");
+            Regex expr = new Regex(@"^([-]?(0|([1-9][0-9]*))[.][0-9]*)$");
             return expr.IsMatch(input);
         }
 
         public static bool checkComplex(string input)
         {
-            Regex expr = new Regex(@"^([-]?([1-9][0-9]*([.][0-9]*)?[+-])?([1-9][0-9]*([.][0-9]*)?[*]?)?[i])$");
+            Regex expr = new Regex(@"^((([0]|([-]?[0][.][0-9]*)|([-]?[1-9][0-9]*([.][0-9]*)?))[+-])?(([0]|([1-9][0-9]*))([.][0-9]*)?[*]?)?[i])$");
             return expr.IsMatch(input);
         }
 
