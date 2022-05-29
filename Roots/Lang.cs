@@ -12,10 +12,10 @@ namespace Roots
 {
     static class Lang
     {
-	    //количество элементов интрефейса
+	//количество элементов интрефейса
         const int elementsCount = 36;
         static string? curLang { get; set; }
-	    //словарь переводов: название языка и список переведенных строк
+	//словарь переводов: название языка и список переведенных строк
         static Dictionary<string, List<string>> locs { get; set; } 
         const string defLanguage = "Русский";
         const string locFileName = "loc.json";
@@ -31,7 +31,7 @@ namespace Roots
             return locs;
         }
 
-	    //получение предусмотренных переводов на русский и английский язык
+	//получение предусмотренных переводов на русский и английский язык
         public static bool LoadLoc() 
         {
             curLang = null;
@@ -67,7 +67,7 @@ namespace Roots
                 return true;
         }
 
-	    //загрузка перевода из языкового файла формата json по указанному пути
+	//загрузка перевода из языкового файла формата json по указанному пути
         public static bool LoadLoc(string fileName)
         {
             Dictionary<string, List<string>> new_locs;
@@ -111,7 +111,7 @@ namespace Roots
             return true;
         }
 
-	    //получение переведенных строк текущей локализации
+	//получение переведенных строк текущей локализации
         public static List<string>? GetLoc(string lang = defLanguage)
         {
             if (locs != null)
@@ -132,7 +132,7 @@ namespace Roots
             }
         }
 
-	    //проверка загрузки локализаций
+	//проверка загрузки локализаций
         public static string? CheckLoc()
         {
             if (locs != null)
