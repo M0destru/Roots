@@ -29,7 +29,7 @@ namespace Roots
             
         }
 
-        void ChangeLoc(string lang)
+        void ChangeLoc(string lang) //смена перевода интерфейса приложения на указанный язык
         {
             var text = Lang.GetLoc(lang);
 
@@ -56,7 +56,7 @@ namespace Roots
             UpdateList();
         }
 
-        public void UpdateList()
+        public void UpdateList() //обновление списка доступных переводов
         {
             cbLanguage.Items.Clear();
 
