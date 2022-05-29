@@ -12,7 +12,7 @@ namespace Roots
 {
     static class Lang
     {
-        const int elementsCount = 31;
+        const int elementsCount = 34;
         static string? curLang { get; set; }
         static Dictionary<string, List<string>> locs { get; set; }
         const string defLanguage = "Русский";
