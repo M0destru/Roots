@@ -103,7 +103,7 @@ Application for square root extraction
 
 ## Content
 
-[User Manual](#user manual)
+[User Manual](#user-manual)
 [Adding a new language](#adding-a-new-language)
 
 ## User Manual
