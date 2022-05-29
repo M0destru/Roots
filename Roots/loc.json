@@ -33,7 +33,9 @@
     "Не удается получить доступ к файлу",
     "Введено не число, либо такой формат числа не поддерживается",
     "Аналитический корень вещественного числа не поддерживается",
-    "Аналитический корень комплексного числа не поддерживается"
+    "Аналитический корень комплексного числа не поддерживается",
+    "Контакты",
+    "Посетите наш сервер в Discord, если вам нужна помощь"
   ],
   "English": [
     "Settings",
@@ -69,6 +71,8 @@
     "Can not access file",
     "Entered not a number or such format is not supported",
     "The analytical root of a real number is not supported",
-    "The analytical root of a complex number is not supported"
+    "The analytical root of a complex number is not supported",
+    "Contacts",
+    "Visit our Discord server if you need any help"
   ]
 }

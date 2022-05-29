@@ -16,6 +16,8 @@ namespace Roots
         private static int precision = 3;
         string msg;
         string caption;
+        string invite;
+        string helpHeader;
 
         public MainForm()
         {
@@ -37,6 +39,8 @@ namespace Roots
                 "   4. Нажмите кнопку \"Извлечь\"\n" +
                 "   5. Найденный корень будет выведен в поле \"Результат\"";
             caption = "Справка";
+            invite = "Посетите наш сервер в Discord, если вам нужна помощь";
+            helpHeader = "Контакты";
         }
 
         private void tsMenuSettings_Click(object sender, EventArgs e)
@@ -60,6 +64,8 @@ namespace Roots
                 rbArithmetic.Text = text[8];
                 rbAnalytical.Text = text[9];
                 gbResult.Text = text[10];
+                invite = text[35];
+                menuStrip1.Items[2].Text = helpHeader = text[34];
                 msg = "";
                 for (int i = 16; i <= 28; i++)
                     msg += text[i];
@@ -96,6 +102,13 @@ namespace Roots
         private void tsMenuReference_Click(object sender, EventArgs e)
         {
             MessageBox.Show(msg, caption, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tsMenuContacts_Click(object sender, EventArgs e)
+        {
+            Help form = new Help(invite);
+            form.Text = helpHeader;
+            form.ShowDialog();
         }
     }
 }

@@ -44,6 +44,7 @@
             this.rbAnalytical = new System.Windows.Forms.RadioButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbResult = new System.Windows.Forms.GroupBox();
+            this.tsMenuContacts = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownPrecision)).BeginInit();
             this.gbInput.SuspendLayout();
@@ -89,7 +90,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsMenuSettings,
-            this.tsMenuReference});
+            this.tsMenuReference,
+            this.tsMenuContacts});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -208,6 +210,13 @@
             this.gbResult.TabStop = false;
             this.gbResult.Text = "Результат";
             // 
+            // tsMenuContacts
+            // 
+            this.tsMenuContacts.Name = "tsMenuContacts";
+            this.tsMenuContacts.Size = new System.Drawing.Size(71, 20);
+            this.tsMenuContacts.Text = "Контакты";
+            this.tsMenuContacts.Click += new System.EventHandler(this.tsMenuContacts_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -253,5 +262,6 @@
         private System.Windows.Forms.RadioButton rbAnalytical;
         private System.Windows.Forms.ToolStripMenuItem tsMenuReference;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuContacts;
     }
 }
